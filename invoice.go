@@ -106,14 +106,14 @@ func (invoice *Invoice) compilePdf() error {
 	// total
 	invoice.pdf.SetLineWidth(2)
 	invoice.pdf.SetLineType("solid")
-	invoice.pdf.Line((a4Width / 2) + marginHr, invoice.pdf.GetY(), a4Width - marginHr, invoice.pdf.GetY())
+	invoice.pdf.Line((a4Width/2)+marginHr, invoice.pdf.GetY(), a4Width-marginHr, invoice.pdf.GetY())
 	invoice.pdf.Br(defaultFontSize)
 
 	invoice.pdf.SetFont("RobotoBold", "", headingFontSize)
 	invoice.pdf.SetX(rightPageSide + marginHr/2)
 	invoice.pdf.SetGrayFill(black)
 	invoice.pdf.CellWithOption(&gopdf.Rect{
-		W: (a4Width - marginHr *3) / 2,
+		W: (a4Width - marginHr*3) / 2,
 		H: headingFontSize,
 	}, fmt.Sprintf("%.2f Kč", invoice.config.Total()), gopdf.CellOption{Align: gopdf.Right})
 

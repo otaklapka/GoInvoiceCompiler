@@ -2,9 +2,9 @@ package main
 
 import (
 	"flag"
+	"github.com/fatih/color"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
-	"github.com/fatih/color"
 )
 
 func main() {
@@ -38,4 +38,3 @@ func main() {
 
 	color.Green("Vytvořena faktura %s", invoice.config.GetVariableSymbol())
 }
-

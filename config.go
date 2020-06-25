@@ -7,30 +7,30 @@ import (
 )
 
 type Config struct {
-	IssuedDate string `yaml:"datum_vystaveni"`
-	DueDate string `yaml:"datum_splatnosti"`
-	BankAccount string `yaml:"cislo_uctu"`
-	variableSymbol string `yaml:"variabilni_symbol"`
-	Iban string
+	IssuedDate       string `yaml:"datum_vystaveni"`
+	DueDate          string `yaml:"datum_splatnosti"`
+	BankAccount      string `yaml:"cislo_uctu"`
+	VariableSymbol   string `yaml:"variabilni_symbol"`
+	Iban             string
 	AccountingEntity Entity `yaml:"ucetni_jednotka"`
-	Customer Entity `yaml:"zakaznik"`
-	Items []Item `yaml:"polozky"`
+	Customer         Entity `yaml:"zakaznik"`
+	Items            []Item `yaml:"polozky"`
 }
 
 type Entity struct {
-	Name string `yaml:"nazev"`
-	Address string `yaml:"adresa"`
-	City string `yaml:"mesto"`
-	Zip string `yaml:"psc"`
-	Id string `yaml:"ic"`
-	VatId string `yaml:"dic"`
-	IsVatPayer bool `yaml:"je_platcem_dph"`
+	Name       string `yaml:"nazev"`
+	Address    string `yaml:"adresa"`
+	City       string `yaml:"mesto"`
+	Zip        string `yaml:"psc"`
+	Id         string `yaml:"ic"`
+	VatId      string `yaml:"dic"`
+	IsVatPayer bool   `yaml:"je_platcem_dph"`
 }
 
 type Item struct {
-	Description string `yaml:"popis"`
-	UnitPrice float64 `yaml:"jednotkova_cena"`
-	Quantity float64 `yaml:"mnozstvi"`
+	Description string  `yaml:"popis"`
+	UnitPrice   float64 `yaml:"jednotkova_cena"`
+	Quantity    float64 `yaml:"mnozstvi"`
 }
 
 func (it *Item) Total() float64 {
@@ -46,10 +46,10 @@ func (config *Config) Total() float64 {
 }
 
 func (config *Config) GetVariableSymbol() string {
-	if config.variableSymbol == "" {
+	if config.VariableSymbol == "" {
 		return config.Serial()
 	} else {
-		return config.variableSymbol
+		return config.VariableSymbol
 	}
 }
 
