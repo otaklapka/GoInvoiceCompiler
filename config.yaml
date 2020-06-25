@@ -1,0 +1,34 @@
+# Vzorovy oubor konfigurace
+
+# Datum je vzdy ve formatu DD.MM.YYYY
+datum_vystaveni: 31.05.2020
+datum_splatnosti: 20.06.2020
+cislo_uctu: 7774446660/9999
+# Pokud nebude zadan iban, faktura nebude obsahovat QR Platbu
+iban: CZxxyy000000007774446660
+# Pokud je vynechan, bude pouzito cislo faktury
+variabilni_symbol: 20200601
+ucetni_jednotka:
+  nazev: Foo Baz
+  adresa: Mystreet 69
+  psc: 987 22
+  mesto: Baz
+  # Pokud bude vynechano predpoklad je false
+  je_platcem_dph: false
+  # ic, dic jsou nepovinna pole
+  ic: 77777777
+zakaznik:
+  nazev: SuperCorp a.s.
+  adresa: Street 123/45
+  psc: 333 12
+  mesto: Mesto - Mestska Cast
+  je_platcem_dph: false
+  ic: 77788899
+  dic: CZ77788899
+polozky:
+    - popis: Hrebiky
+      jednotkova_cena: .33
+      mnozstvi: 500
+    - popis: Prace
+      jednotkova_cena: 300
+      mnozstvi: 8.5
